@@ -26,7 +26,7 @@ class ScrollWheelTime(bpy.types.Operator):
         scn.frame_set(current_frame)
            
         if not scn.frame_start <= current_frame <= scn.frame_end:
-            scn.frame_set(scn.frame_start if self.direction==1 else scn.frame_end)
+            scn.frame_set(scn.frame_start if self.direction>=1 else scn.frame_end)
 
         return {'FINISHED'}            # Lets Blender know the operator finished successfully.
 
