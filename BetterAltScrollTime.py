@@ -18,13 +18,13 @@ class ScrollWheelUpTime(bpy.types.Operator):
         
         
         # logic
-        scn = bpy.context.scene 
-        current_frame = bpy.context.scene.frame_current
+        scn = context.scene 
+        current_frame = context.scene.frame_current
         current_frame-=1
-        bpy.context.scene.frame_set(current_frame)
+        context.scene.frame_set(current_frame)
            
         if current_frame < scn.frame_start:
-            bpy.context.scene.frame_set(scn.frame_end)
+            context.scene.frame_set(scn.frame_end)
 
         return {'FINISHED'}            # Lets Blender know the operator finished successfully.
 
@@ -39,13 +39,13 @@ class ScrollWheelDownTime(bpy.types.Operator):
     def execute(self, context):        # execute() is called when running the operator.
         
         # logic
-        scn = bpy.context.scene 
-        current_frame = bpy.context.scene.frame_current
+        scn = context.scene 
+        current_frame = context.scene.frame_current
         current_frame+=1
-        bpy.context.scene.frame_set(current_frame)
+        context.scene.frame_set(current_frame)
                   
         if current_frame > scn.frame_end:
-            bpy.context.scene.frame_set(scn.frame_start)
+            context.scene.frame_set(scn.frame_start)
 
         return {'FINISHED'}            # Lets Blender know the operator finished successfully.
 
